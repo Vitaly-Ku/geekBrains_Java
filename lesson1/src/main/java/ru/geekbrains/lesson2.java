@@ -8,6 +8,7 @@ public class lesson2 {
     static int[] task2array = new int[8];
     static int[] task3array = {1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1};
     static Integer[] task5array = new Integer[9];
+    static int[] task6array = {2, 3, 4, 9};
 
 
     public static void main(String[] args) {
@@ -21,6 +22,8 @@ public class lesson2 {
         fillDiagonal(7);
 
         minAndMaxValues();
+
+        checkBalance(task6array);
     }
 
     //    MARK: - task № 1
@@ -79,7 +82,7 @@ public class lesson2 {
 
         for (int[] deep: task4array) {
             for (int num: deep) {
-                System.out.printf("%2d", num);
+                System.out.printf("%3d", num);
             }
             System.out.println();
         }
@@ -95,6 +98,30 @@ public class lesson2 {
 
         System.out.println(Arrays.toString(task5array) + " отсортированный массив");
         System.out.println(task5array[0] + " - макс значение");
-        System.out.println(task5array[task5array.length - 1] + " - мин значение");
+        System.out.println(task5array[task5array.length - 1] + " - мин значение" + "\n");
+    }
+
+    //    MARK: - task № 6
+    public static void checkBalance(int[] arr) {
+        System.out.println("Задание № 6\n" + Arrays.toString(task6array) + " базовый массив из задания № 6");
+        int left = 0, right = 0;
+
+        for (int i = 0; i < arr.length; i++)
+            right += arr[i];
+
+        for (int i = 0; i < arr.length; i++)
+        {
+            left += arr[i];
+            right -= arr[i];
+
+            if (left == right) {
+                System.out.println("части массива равны!");
+                return;
+            } else if (left > right) {
+                System.out.println("части массива не равны");
+                return;
+            }
+        }
     }
 }
+
