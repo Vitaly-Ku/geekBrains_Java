@@ -40,6 +40,10 @@ public class lesson4 {
     private static void sizeChoice() {
         System.out.println("Веедите число - сторону игрового поля от 3 до 30");
         size = in.nextInt();
+        while (size>30) {
+            System.out.println("Выберите не более 30");
+            size = in.nextInt();
+        }
         if (size > 2 && size < 7) {
             dotsToWin = 3;
         } else if (size > 6 && size < 11) {
